@@ -1,0 +1,83 @@
+POST http://localhost:3000/user/register
+Content-Type: application/json
+
+{
+    "name": "Victor Langa",
+    "email": "v@gmail.com",
+    "password": "vlanga"
+}
+
+###
+
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "email": "v@gmail.com",
+    "password": "vlanga"
+}
+
+###
+
+POST http://localhost:3000/transition/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzc3NjQ2MTI2LCJleHAiOjE3Nzc3MzI1MjZ9.T7mjwOHqeabUBflsM0qrQA_WDkS3cyiNvUUM4wnIA7M
+
+{
+    "description": "Salário",
+    "amount": "5000",
+    "type": "income",
+    "category": "Salário"
+}
+
+###
+
+POST http://localhost:3000/transition/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzc3NjQ2MTI2LCJleHAiOjE3Nzc3MzI1MjZ9.T7mjwOHqeabUBflsM0qrQA_WDkS3cyiNvUUM4wnIA7M
+
+{
+    "description": "Aluguer",
+    "amount": "1500",
+    "type": "expense",
+    "category": "Moradia"
+}
+
+###
+
+GET http://localhost:3000/transition/list
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzc3NjQ2MTI2LCJleHAiOjE3Nzc3MzI1MjZ9.T7mjwOHqeabUBflsM0qrQA_WDkS3cyiNvUUM4wnIA7M
+
+###
+
+GET http://localhost:3000/transition/summary
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzc3NjQ2MTI2LCJleHAiOjE3Nzc3MzI1MjZ9.T7mjwOHqeabUBflsM0qrQA_WDkS3cyiNvUUM4wnIA7M
+
+###
+
+POST http://localhost:3000/transition/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzc3NjQ2MTI2LCJleHAiOjE3Nzc3MzI1MjZ9.T7mjwOHqeabUBflsM0qrQA_WDkS3cyiNvUUM4wnIA7M
+
+{
+    "description": "Uber",
+    "amount": "300",
+    "type": "expense",
+    "category": "Transporte"
+}
+
+###
+
+POST http://localhost:3000/transition/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzc3NjQ2MTI2LCJleHAiOjE3Nzc3MzI1MjZ9.T7mjwOHqeabUBflsM0qrQA_WDkS3cyiNvUUM4wnIA7M
+
+{
+    "description": "Supermercado Extra",
+    "amount": "450.20",
+    "type": "expense",
+    "category": "Alimentação",
+    "date": "2022-01-01"
+}
