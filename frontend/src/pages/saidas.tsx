@@ -17,9 +17,9 @@ import Link from "../components/link";
 export default function Saidas() {
     const navigate = useNavigate();
     const [user, setUser] = useState<{ name: string; email: string } | null>(null);
-    const [transactions, setTransactions] = useState<any[]>([]);
     const [totalExpenses, setTotalExpenses] = useState<number>(0);
     const [searchTerm, setSearchTerm] = useState<string>('');
+    const [transactions, setTransactions] = useState<Array<{ id: string, description: string, amount: number, type: string, category: string, date: string }>>([]);
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
@@ -98,7 +98,7 @@ export default function Saidas() {
             <main className="flex-1 flex flex-col relative overflow-y-auto overflow-x-hidden custom-scrollbar">
                 <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-rose-500/5 rounded-full blur-[120px] pointer-events-none" />
                 
-                <header className="p-6 md:p-8 flex items-center justify-between z-10">
+                <header className="p-4 md:p-6 lg:p-8 flex items-center justify-between z-10">
                     <div className="flex items-center gap-4">
                         <button 
                             onClick={() => navigate('/dashbord')}
@@ -108,7 +108,7 @@ export default function Saidas() {
                         </button>
                         <div>
                             <h2 className="text-xl md:text-2xl font-bold text-rose-400">Minhas Saídas</h2>
-                            <p className="text-sm text-slate-400">Gerencie todos os seus gastos.</p>
+                            <p className="text-xs md:text-sm text-slate-400">Gerencie todos os seus gastos.</p>
                         </div>
                     </div>
 
@@ -117,11 +117,11 @@ export default function Saidas() {
                     </div>
                 </header>
 
-                <section className="px-6 md:px-8 pb-8 space-y-6 md:space-y-8 z-10">
-                    <div className="glass-card p-6 md:p-8 rounded-[2rem] border-l-8 border-l-rose-500 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                <section className="px-4 md:px-8 pb-8 space-y-4 md:space-y-6 z-10">
+                    <div className="glass-card p-5 md:p-6 rounded-[2rem] border-l-8 border-l-rose-500 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                         <div>
-                            <p className="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">Total Gasto (Mês)</p>
-                            <h3 className="text-3xl md:text-4xl font-black text-white">{formatCurrency(totalExpenses)}</h3>
+                            <p className="text-[10px] md:text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">Total Gasto (Mês)</p>
+                            <h3 className="text-2xl md:text-4xl font-black text-white">{formatCurrency(totalExpenses)}</h3>
                         </div>
                     </div>
 

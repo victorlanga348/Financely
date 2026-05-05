@@ -7,11 +7,11 @@ import Link from "../components/link";
 import Button from "../components/button";
 
 export default function Register() {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
+    const [name, setName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [showPassword, setShowPassword] = useState<boolean>(false);
     const navigate = useNavigate();
 
     async function handleRegister(e: React.FormEvent) {

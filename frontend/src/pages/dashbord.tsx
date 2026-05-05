@@ -26,7 +26,7 @@ export default function Dashbord() {
     const [totalValue, setTotalValue] = useState<number>(0);
     const [entradas, setEntradas] = useState<number>(0);
     const [saidas, setSaidas] = useState<number>(0);
-    const [transactions, setTransactions] = useState<any[]>([]);
+    const [transactions, setTransactions] = useState<Array<{ id: string, description: string, amount: number, type: string, category: string, date: string }>>([]);
     
     // Modal state
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -161,10 +161,10 @@ export default function Dashbord() {
                 <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
                 
                 {/* Header */}
-                <header className="p-6 md:p-8 flex items-center justify-between z-10 flex-wrap gap-4">
+                <header className="p-4 md:p-6 lg:p-8 flex items-center justify-between z-10 flex-wrap gap-4">
                     <div>
                         <h2 className="text-xl md:text-2xl font-bold">Olá, {user?.name || "Usuário"} 👋</h2>
-                        <p className="text-sm text-slate-400">Aqui está o resumo das suas finanças hoje.</p>
+                        <p className="text-xs md:text-sm text-slate-400">Aqui está o resumo das suas finanças hoje.</p>
                     </div>
 
                     <div className="flex items-center gap-4">
@@ -175,7 +175,7 @@ export default function Dashbord() {
                 </header>
 
                 {/* Dashboard Grid */}
-                <section className="px-6 md:px-8 pb-8 space-y-6 md:space-y-8 z-10">
+                <section className="px-4 md:px-8 pb-8 space-y-4 md:space-y-6 lg:space-y-8 z-10">
                     
                     {/* Stat Cards */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
@@ -199,9 +199,9 @@ export default function Dashbord() {
                         />
                     </div>
 
-                    <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 md:gap-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
                         {/* Recent Transactions */}
-                        <div className="xl:col-span-2 space-y-4">
+                        <div className="lg:col-span-2 space-y-4">
                             <div className="flex items-center justify-between">
                                 <h3 className="text-lg md:text-xl font-bold">Transações Recentes</h3>
                                 <button className="text-sm font-medium text-emerald-400 hover:text-emerald-300" onClick={() => navigate('/relatorios')}>
@@ -253,12 +253,12 @@ export default function Dashbord() {
                             <h3 className="text-lg md:text-xl font-bold">Ações Rápidas</h3>
                             <button 
                                 onClick={() => setIsModalOpen(true)}
-                                className="w-full bg-emerald-600 hover:bg-emerald-500 py-8 md:py-12 rounded-[2rem] flex flex-col items-center justify-center gap-4 transition-all active:scale-95 shadow-xl shadow-emerald-900/20 group"
+                                className="w-full bg-emerald-600 hover:bg-emerald-500 py-6 md:py-10 lg:py-14 rounded-[2rem] flex flex-col items-center justify-center gap-4 transition-all active:scale-95 shadow-xl shadow-emerald-900/20 group"
                             >
-                                <div className="p-4 bg-white/20 rounded-2xl group-hover:scale-110 transition-transform">
-                                    <Plus className="text-white" size={32} strokeWidth={3} />
+                                <div className="p-3 bg-white/20 rounded-2xl group-hover:scale-110 transition-transform">
+                                    <Plus className="text-white" size={28} strokeWidth={3} />
                                 </div>
-                                <span className="font-bold text-lg md:text-xl">Nova Transação</span>
+                                <span className="font-bold text-lg">Nova Transação</span>
                             </button>
                         </div>
                     </div>

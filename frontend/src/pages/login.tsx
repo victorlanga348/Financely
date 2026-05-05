@@ -7,10 +7,10 @@ import Button from "../components/button";
 import Link from "../components/link";
 
 export default function Login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [showPassword, setShowPassword] = useState<boolean>(false);
     const navigate = useNavigate();
 
     async function logar(e: React.FormEvent) {
@@ -27,10 +27,8 @@ export default function Login() {
                 toast.error("Email inválido");
                 return;
             }
-
+            
             const response = await api.post('/user/login', { email, password });
-
-            console.log(response.data);
             
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('user', JSON.stringify(response.data.user));

@@ -10,7 +10,7 @@ import { Navigate } from 'react-router-dom';
 
 
 function App() {
-  const navigateTo = (path) => {
+  const navigateTo = (path: string) => {
     return <Navigate to={path} />;
   };
   return (

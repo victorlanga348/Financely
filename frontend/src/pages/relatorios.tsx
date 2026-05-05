@@ -17,7 +17,7 @@ import Link from "../components/link";
 export default function Relatorios() {
     const navigate = useNavigate();
     const [user, setUser] = useState<{ name: string; email: string } | null>(null);
-    const [transactions, setTransactions] = useState<any[]>([]);
+    const [transactions, setTransactions] = useState<Array<{ id: string, description: string, amount: number, type: string, category: string, date: string }>>([]);
     const [summary, setSummary] = useState({ totalIncome: 0, totalExpenses: 0, balance: 0 });
     const [searchTerm, setSearchTerm] = useState<string>('');
 
@@ -96,7 +96,7 @@ export default function Relatorios() {
             <main className="flex-1 flex flex-col relative overflow-y-auto overflow-x-hidden custom-scrollbar">
                 <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
                 
-                <header className="p-6 md:p-8 flex items-center justify-between z-10">
+                <header className="p-4 md:p-6 lg:p-8 flex items-center justify-between z-10">
                     <div className="flex items-center gap-4">
                         <button 
                             onClick={() => navigate('/dashbord')}
@@ -106,7 +106,7 @@ export default function Relatorios() {
                         </button>
                         <div>
                             <h2 className="text-xl md:text-2xl font-bold">Relatórios</h2>
-                            <p className="text-sm text-slate-400">Extrato detalhado de transações.</p>
+                            <p className="text-xs md:text-sm text-slate-400">Extrato detalhado de transações.</p>
                         </div>
                     </div>
 
@@ -115,18 +115,18 @@ export default function Relatorios() {
                     </div>
                 </header>
 
-                <section className="px-6 md:px-8 pb-8 space-y-6 md:space-y-8 z-10">
+                <section className="px-4 md:px-8 pb-8 space-y-4 md:space-y-6 z-10">
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div className="glass-card p-4 md:p-6 rounded-2xl border-l-4 border-l-emerald-500">
-                            <p className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Entradas</p>
+                        <div className="glass-card p-4 md:p-5 rounded-2xl border-l-4 border-l-emerald-500">
+                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Entradas</p>
                             <h4 className="text-lg md:text-xl font-black text-emerald-400">{formatCurrency(summary.totalIncome)}</h4>
                         </div>
-                        <div className="glass-card p-4 md:p-6 rounded-2xl border-l-4 border-l-rose-500">
-                            <p className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Saídas</p>
+                        <div className="glass-card p-4 md:p-5 rounded-2xl border-l-4 border-l-rose-500">
+                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Saídas</p>
                             <h4 className="text-lg md:text-xl font-black text-rose-400">{formatCurrency(summary.totalExpenses)}</h4>
                         </div>
-                        <div className="glass-card p-4 md:p-6 rounded-2xl border-l-4 border-l-indigo-500">
-                            <p className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Saldo</p>
+                        <div className="glass-card p-4 md:p-5 rounded-2xl border-l-4 border-l-indigo-500">
+                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Saldo</p>
                             <h4 className="text-lg md:text-xl font-black text-white">{formatCurrency(summary.balance)}</h4>
                         </div>
                     </div>
