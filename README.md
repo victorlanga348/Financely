@@ -6,12 +6,6 @@ Diferente de planilhas estáticas, o Financely utiliza uma lógica de filtragem 
 
 ---
 
-## 🔗 Links do Projeto
-- **Live Demo:** [Em breve]
-- **Documentação da API:** [Em breve]
-
----
-
 ## 🧠 Decisões de Arquitetura
 
 ### **1. Interface Adaptativa (Mobile-First)**
