@@ -124,7 +124,7 @@ export default function Dashbord() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-950 text-slate-50 flex overflow-hidden">
+        <div className="h-screen bg-slate-950 text-slate-50 flex overflow-hidden">
             
             {/* Sidebar - Hidden on mobile */}
             <aside className="w-64 border-r border-white/10 flex flex-col glass-card m-4 rounded-[2rem] hidden lg:flex">
@@ -161,7 +161,7 @@ export default function Dashbord() {
                 <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
                 
                 {/* Header */}
-                <header className="p-4 md:p-6 lg:p-8 flex items-center justify-between z-10 flex-wrap gap-4">
+                <header className="p-4 md:p-6 lg:px-8 lg:py-6 flex items-center justify-between z-10 flex-wrap gap-4">
                     <div>
                         <h2 className="text-xl md:text-2xl font-bold">Olá, {user?.name || "Usuário"} 👋</h2>
                         <p className="text-xs md:text-sm text-slate-400">Aqui está o resumo das suas finanças hoje.</p>

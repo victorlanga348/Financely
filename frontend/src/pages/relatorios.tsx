@@ -63,7 +63,7 @@ export default function Relatorios() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-950 text-slate-50 flex overflow-hidden">
+        <div className="h-screen bg-slate-950 text-slate-50 flex overflow-hidden">
             
             <aside className="w-64 border-r border-white/10 flex flex-col glass-card m-4 rounded-[2rem] hidden lg:flex">
                 <div className="p-8">
@@ -96,7 +96,7 @@ export default function Relatorios() {
             <main className="flex-1 flex flex-col relative overflow-y-auto overflow-x-hidden custom-scrollbar">
                 <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
                 
-                <header className="p-4 md:p-6 lg:p-8 flex items-center justify-between z-10">
+                <header className="p-4 md:p-6 lg:px-8 lg:py-6 flex items-center justify-between z-10">
                     <div className="flex items-center gap-4">
                         <button 
                             onClick={() => navigate('/dashbord')}
@@ -115,7 +115,7 @@ export default function Relatorios() {
                     </div>
                 </header>
 
-                <section className="px-4 md:px-8 pb-8 space-y-4 md:space-y-6 z-10">
+                <section className="px-4 md:px-8 pb-6 space-y-4 md:space-y-5 z-10">
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div className="glass-card p-4 md:p-5 rounded-2xl border-l-4 border-l-emerald-500">
                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Entradas</p>
@@ -132,7 +132,7 @@ export default function Relatorios() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <div className="flex-1 flex items-center bg-white/5 border border-white/10 rounded-2xl px-4 py-3 focus-within:ring-2 focus-within:ring-emerald-500/50 transition-all">
+                        <div className="flex-1 flex items-center bg-white/5 border border-white/10 rounded-2xl px-4 py-2.5 focus-within:ring-2 focus-within:ring-emerald-500/50 transition-all">
                             <Search className="text-slate-500 mr-2" size={20} />
                             <input 
                                 type="text" 
@@ -146,44 +146,42 @@ export default function Relatorios() {
 
                     {/* DESKTOP TABLE */}
                     <div className="hidden md:block glass-card rounded-[2rem] overflow-hidden">
-                        <div className="p-8">
-                            <div className="max-h-[50vh] overflow-y-auto custom-scrollbar">
-                                <table className="w-full text-left">
-                                    <thead>
-                                        <tr className="text-slate-500 text-sm border-b border-white/10">
-                                            <th className="pb-4 font-bold uppercase tracking-wider">Descrição</th>
-                                            <th className="pb-4 font-bold uppercase tracking-wider">Categoria</th>
-                                            <th className="pb-4 font-bold uppercase tracking-wider text-center">Data</th>
-                                            <th className="pb-4 font-bold uppercase tracking-wider text-right">Valor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="divide-y divide-white/5">
-                                        {filteredTransactions.map((transaction) => (
-                                            <tr key={transaction.id} className="group hover:bg-white/[0.02] transition-colors">
-                                                <td className="py-5">
-                                                    <div className="flex items-center gap-4">
-                                                        <div className={`p-3 rounded-xl ${transaction.type === 'income' ? 'bg-emerald-500/10' : 'bg-rose-500/10'}`}>
-                                                            {transaction.type === 'income' ? <ArrowUpCircle size={20} className="text-emerald-400" /> : <ArrowDownCircle size={20} className="text-rose-400" />}
-                                                        </div>
-                                                        <span className="font-bold">{transaction.description}</span>
+                        <div className="p-6">
+                            <table className="w-full text-left">
+                                <thead>
+                                    <tr className="text-slate-500 text-sm border-b border-white/10">
+                                        <th className="pb-3 font-bold uppercase tracking-wider">Descrição</th>
+                                        <th className="pb-3 font-bold uppercase tracking-wider">Categoria</th>
+                                        <th className="pb-3 font-bold uppercase tracking-wider text-center">Data</th>
+                                        <th className="pb-3 font-bold uppercase tracking-wider text-right">Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-white/5">
+                                    {filteredTransactions.map((transaction) => (
+                                        <tr key={transaction.id} className="group hover:bg-white/[0.02] transition-colors">
+                                            <td className="py-3.5">
+                                                <div className="flex items-center gap-4">
+                                                    <div className={`p-2.5 rounded-xl ${transaction.type === 'income' ? 'bg-emerald-500/10' : 'bg-rose-500/10'}`}>
+                                                        {transaction.type === 'income' ? <ArrowUpCircle size={18} className="text-emerald-400" /> : <ArrowDownCircle size={18} className="text-rose-400" />}
                                                     </div>
-                                                </td>
-                                                <td className="py-5">
-                                                    <span className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs font-semibold text-slate-400">
-                                                        {transaction.category}
-                                                    </span>
-                                                </td>
-                                                <td className="py-5 text-sm text-slate-500 text-center">
-                                                    {new Date(transaction.date).toLocaleDateString('pt-BR')}
-                                                </td>
-                                                <td className={`py-5 font-black text-right ${transaction.type === 'income' ? 'text-emerald-400' : 'text-slate-100'}`}>
-                                                    {transaction.type === 'income' ? '+' : '-'} {formatCurrency(transaction.amount)}
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
+                                                    <span className="font-bold">{transaction.description}</span>
+                                                </div>
+                                            </td>
+                                            <td className="py-3.5">
+                                                <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-semibold text-slate-400">
+                                                    {transaction.category}
+                                                </span>
+                                            </td>
+                                            <td className="py-3.5 text-sm text-slate-500 text-center">
+                                                {new Date(transaction.date).toLocaleDateString('pt-BR')}
+                                            </td>
+                                            <td className={`py-3.5 font-black text-right ${transaction.type === 'income' ? 'text-emerald-400' : 'text-slate-100'}`}>
+                                                {transaction.type === 'income' ? '+' : '-'} {formatCurrency(transaction.amount)}
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 

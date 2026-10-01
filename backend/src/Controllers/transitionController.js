@@ -11,7 +11,7 @@ export const createTransition = async (req, res) => {
                 amount: Number(amount),
                 type,
                 category,
-                date: new Date(date),
+                date: date ? new Date(date) : new Date(),
                 userId
             }
         });
